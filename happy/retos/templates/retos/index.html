@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+<head>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+	<link rel="stylesheet"  href="{% static 'css/buscar.css' %}">
+	<title>buscar</title>
+</head>
+<body>
+    <div class="container">
+    <a href="{% url 'buscar' %}"><button>busqueda</button></a>
+{% for retos in retos %}
+<p id="p">{{retos.identificacion}}</p>
+{{retos.nombres}}
+{{retos.apellidos}}
+{{retos.ficha}}
+{{retos.puntaje}}
+{{retos.user}}
+{% endfor %}
+</div>	
+</body>
+</html>
