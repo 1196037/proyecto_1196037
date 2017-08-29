@@ -1,0 +1,8 @@
+{% block content %}
+	<form method="POST" class="RegistroForm">
+		{% csrf_token %}
+		{{ form.as_p }}
+			<button type="submit" class="save btn btn-default" color="#7F2148">guardar</button>
+			<a class="btn btn-default" href="/">atras</a>
+	</form> 
+{% endblock %}
