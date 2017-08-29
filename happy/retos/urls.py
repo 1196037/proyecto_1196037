@@ -2,6 +2,8 @@ from django.conf.urls import url
 from.views import * 
 
 urlpatterns = [
+		url(r'^base/nuevo/$', registrar_aprendices, name='registrar_aprendices'),
+		url(r'^registrar_aprendices/retos/correcto$', correcto, name='correcto'),
 		url(r'^buscar1/$', lista_aprendices, name='lista'),
 		url(r'^buscar/$', buscar_ap, name='buscar'),
 		url(r'^$', aprendices, name='aprendices'),#vista principal

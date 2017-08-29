@@ -81,3 +81,33 @@ def logout_view(request):
 	logout(request)
 	return HttpResponseRedirect('/')
 	
+
+
+def base(request):
+	if request.method == "POST":
+		form = aprendicesForm(request.POST)
+		if form.is_valid():
+			aprendiz = form.save(commit=False)
+			aprendiz.Hora = 0
+			aprendiz.save()
+			return redirect(correcto)
+	else:
+		form = aprendicesForm()
+	return render(request, 'retos/base.html', {'form' : form})
+
+def registrar_aprendices(request):
+	if request.method == "POST":
+		form = aprendicesForm(request.POST)
+		if form.is_valid():
+			aprendiz = form.save(commit=False)
+			aprendiz.Hora = 0
+			aprendiz.save()
+			return redirect(correcto)
+	else:
+		form = aprendicesForm()
+	return render(request, 'retos/base.html', {'form' : form})
+
+
+def correcto(request):
+	return render(request, 'retos/correcto.html')
+
