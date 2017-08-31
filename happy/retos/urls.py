@@ -13,5 +13,6 @@ urlpatterns = [
 		url(r'^login/$', login_view, name='vista_login'),
 		#url(r'^$', , name='vista_login'),
 		url(r'^logout/$', logout_view, name='vista_logout'),
+		url(r'^agregar_categoria/$',agregar_categoria, name='agregar_categoria'),
 
 ]
