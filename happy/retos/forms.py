@@ -34,3 +34,9 @@ class Agregar_Categoria_Forms(forms.ModelForm):
 			'nombre': forms.TextInput(attrs={'class':'form-control'})
 		}
 	
+class Crear_Reto_Form (forms.ModelForm):
+	class Meta: 
+		model = Reto
+		fields	 = '__all__'
+
+
