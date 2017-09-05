@@ -1,7 +1,0 @@
-{% block content %}
-	<form method="POST" class="RegistroForm">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit" class="save btn btn-default">guardar</button>
-	</form> 
-{% endblock %}
