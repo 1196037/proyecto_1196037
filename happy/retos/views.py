@@ -111,26 +111,3 @@ def registrar_aprendices(request):
 def correcto(request):
 	return render(request, 'retos/correcto.html')
 
-def agregar_categoria(request):
-	if request.method == 'POST':
-		form = Agregar_Categoria_Forms(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('agregar_categoria')
-	else: 
-		form = Agregar_Categoria_Forms()
-
- 	return render(request,'retos/agregar_categoria.html',{'form':form})
-
-def crear_reto(request):
-	if request.method == 'POST' :
-		form = Crear_Reto_Form(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return redirect('crear_reto')
-	else:
-		form= Crear_Reto_Form()
-
-	return render(request, 'retos/crear_reto.html', {'form': form})
-	
-
