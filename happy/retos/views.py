@@ -7,11 +7,6 @@ from django.http import HttpResponseRedirect
 
 
 # Create your views here.
-def lista_aprendices(request):
-	c= Persona.objects.filter()
-	return render(request, 'retos/index.html', {'retos': c})
-
-
 def buscar_ap(request):
 	buscar = ""
 	if request.method == "POST":#verificar si el formulario esta lleno
@@ -25,21 +20,19 @@ def buscar_ap(request):
 
 def aprendices(request):
 	p= Persona.objects.all()
-	return render(request, 'retos/lista_aprendiz.html' ,{'lista':p})
+	return render(request, 'retos/lista.html' ,{'lista':p})
 
-def post_new(request):
-	if request.method == "POST":
-		form = PersonaForm(request.POST)
-		if form.is_valid():
-			post = form.save(commit=False)
-			post.author = request.user
-			post.save()
-			return redirect('aprendices')
-	else:
-		form = PersonaForm()
-	return render(request, 'retos/agregar.html', {'form': form})
-		# form = RegistroForm()
-		# return render(request, 'vistas_html/editar.html', {'form': form})
+# def post_new(request):
+# 	if request.method == "POST":
+# 		form = PersonaForm(request.POST)
+# 		if form.is_valid():
+# 			post = form.save(commit=False)
+# 			post.author = request.user
+# 			post.save()
+# 			return redirect('aprendices')
+# 	else:
+# 		form = PersonaForm()
+# 	return render(request, 'retos/agregar.html', {'form': form})
 
 
 
@@ -105,9 +98,6 @@ def registrar_aprendices(request):
 			return redirect(correcto)
 	else:
 		form = aprendicesForm()
-	return render(request, 'retos/base.html', {'form' : form})
+	return render(request, 'retos/agregar.html', {'form' : form})
 
-
-def correcto(request):
-	return render(request, 'retos/correcto.html')
 

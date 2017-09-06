@@ -13,6 +13,10 @@ TIPO = (
 		('individual','Individual'),
 		('grupal','Grupal'),
 	)
+ESTADO = (
+	     ('activo','Activo'),
+	     ('incativo','Inactivo'),
+	)
 class Categoria (models.Model):
 	nombre 			= models.CharField(max_length = 50)
 
@@ -28,6 +32,9 @@ class Reto (models.Model):
 	dificultad			= models.CharField(max_length = 50, choices = NIVELES)
 	archivo 			= models.FileField(upload_to = 'retos')
 	categoria			= models.ForeignKey(Categoria)
+	estado              = models.CharField(max_length = 50, choices = ESTADO)
+	like                = models.IntegerField()
+	dis_like            = models.IntegerField()
 
 	def __unicode__ (self):
 		return self.descripcion
@@ -44,7 +51,7 @@ class Persona (models.Model):
 		return self.nombres
 
 class Persona_Reto (models.Model):
-	persona			= models.ForeignKey(Categoria)
+	persona			= models.ForeignKey(Persona)
 	reto			= models.ForeignKey(Reto)
 	fecha_respuesta	= models.DateTimeField(auto_now_add=True)
 	calificacion 	= models.IntegerField()

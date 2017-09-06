@@ -1,5 +1,5 @@
-{% load staticfiles %}
-
+{% extends 'retos/base.html' %}
+{% block content %}
 <!DOCTYPE html>
 
 <html>
@@ -7,19 +7,13 @@
 	<title>retos</title>
 </head>
 <body>
-{%block content %}
  <form method="POST">
  	{% csrf_token %}
 
 	{{ form.as_p }} 
 
   <button type="submit">guardar</button>
-
-
-
  </form>
- {% endblock%}      
-
-
 </body>
 </html>
+ {% endblock%} 
