@@ -20,5 +20,27 @@ class aprendicesForm(forms.ModelForm):
 		model = Persona
 		fields = ('identificacion','nombres', 'apellidos','ficha','puntaje','user',)
 
+class Agregar_Categoria_Forms(forms.ModelForm):
+	class Meta:
+		model= Categoria
+		fields=[
+			'nombre',
+		]
+		labels={	
+			'nombre' :'Nombre',
+		}
+		widgets={
+			'nombre': forms.TextInput(attrs={'class':'form-control'})
+		}
+
+class Crear_Reto_Form (forms.ModelForm):
+	class Meta: 
+		model = Reto
+		fields	 = '__all__'
+		
+# class ver_reto_Form (forms.ModelForm):
+# 	class Meta: 
+# 		model = Reto
+# 		fields	 = '__all__'
 
 	

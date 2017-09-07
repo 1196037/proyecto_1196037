@@ -1,6 +1,7 @@
 {% load staticfiles %} 
 
 <html>
+<!DOCTYPE html>
 	<head>
 
 
@@ -9,11 +10,13 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="{% static 'manejo.css' %}">
-	</head>
+	
+ 	</head>
 	<body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 		<div class="page-header">
 		</div>
-
 		<div class="container">
 		<div class="row">
 		<div class="col-md-8">
@@ -23,5 +26,10 @@
 		</div>
 		</div>
 		</div>
+	<script type="">
+		 $(document).ready(function() {
+         $('select').material_select();
+         });
+	</script>
 		</body>
 </html>

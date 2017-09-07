@@ -1,9 +1,8 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from .models import Persona
+from .models import Persona, Reto
 from .forms import *
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect
-
 
 
 # Create your views here.
@@ -13,7 +12,7 @@ def buscar_ap(request):
 		form = busqueda(request.POST)#instancia de la clase 
 		if form.is_valid():#si el formulario es valido 
 		   buscar = form.cleaned_data['buscar']#limpiar los espacios en blanco 	
-		   ap = Persona.objects.filter(nombres=buscar)#query
+		   ap = Persona.objects.filter(nombres__contains=buscar)#query
 	else:
 		form = busqueda()#formulario vacio
 	return render(request, 'retos/index2.html', locals())#renderizacion al html
@@ -33,7 +32,6 @@ def aprendices(request):
 # 	else:
 # 		form = PersonaForm()
 # 	return render(request, 'retos/agregar.html', {'form': form})
-
 
 
 def editar(request, pk):
@@ -101,3 +99,32 @@ def registrar_aprendices(request):
 	return render(request, 'retos/agregar.html', {'form' : form})
 
 
+def agregar_categoria(request):
+	if request.method == 'POST':
+		form = Agregar_Categoria_Forms(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('agregar_categoria')
+	else: 
+		form = Agregar_Categoria_Forms()
+
+ 	return render(request,'retos/agregar_categoria.html',{'form':form})
+
+def crear_reto(request):
+	if request.method == 'POST' :
+		form = Crear_Reto_Form(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('crear_reto')
+	else:
+		form= Crear_Reto_Form()
+
+	return render(request, 'retos/crear_reto.html', {'form': form})
+
+def ver_retos(request):
+	ver = Reto.objects.all()
+	return render(request, 'retos/ver_reto.html', {'m': ver})
+
+def ranking (request):
+	b = Persona.objects.all().order_by("-puntaje")
+	return render (request,'retos/ranking.html' , {'lista': b})

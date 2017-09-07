@@ -1,11 +1,6 @@
 {% extends 'retos/base.html' %}
 {% block content %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>happy student</title>
-	</head>
-	<body>
+
 	<a href="{% url 'buscar' %}"><button>busqueda</button></a>
 		<table>
 			<tr>
@@ -13,8 +8,8 @@
 				<td><strong>nombres</strong></td>
 				<td><strong>apellidos</strong></td>
 				<td><strong>ficha</strong></td>
-				<td><strong>puntaje</strong></td>
-				<td><strong>user</strong></td>
+				<td><strong>usuario</strong></td>
+
 
 			</tr>
 	 
@@ -49,13 +44,7 @@
 						</div>
 						{% endfor %}
 				</td>
-				<td>
-				        {% for lista in lista %}
-						<div>
-							<p>{{lista.puntaje}}</p>
-						</div>
-						{% endfor %}
-				</td>
+			
 				<td>
 				        {% for lista in lista %}
 						<div>
@@ -66,12 +55,6 @@
 
 					
 				</td>
-		
 		</table>
-		
 
-				
-
-	</body>
-</html>
 {% endblock content %}
