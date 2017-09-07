@@ -1,0 +1,60 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+
+	<a href="{% url 'buscar' %}"><button>busqueda</button></a>
+		<table>
+			<tr>
+				<td><strong>identificacion</strong></td>
+				<td><strong>nombres</strong></td>
+				<td><strong>apellidos</strong></td>
+				<td><strong>ficha</strong></td>
+				<td><strong>usuario</strong></td>
+
+
+			</tr>
+	 
+			<tr>
+				<td>
+						{% for lista in lista %}
+						<div>
+							<p>{{lista.identificacion}}</p>	
+						</div>
+						{% endfor %}
+				</td>
+				<td>
+				        {% for lista in lista %}
+						<div>
+							<p>{{lista.nombres}}</p>
+						</div>
+						{% endfor %}
+				</td>
+				<td>  
+				        {% for lista in lista %}
+						<div>
+							<p>{{lista.apellidos}}</p>
+						</div>
+						{% endfor %}
+				</td>
+				
+				<td>
+
+				        {% for lista in lista %}
+						<div>
+							<p>{{lista.ficha}}</p>
+						</div>
+						{% endfor %}
+				</td>
+			
+				<td>
+				        {% for lista in lista %}
+						<div>
+							<p>{{lista.user}}
+							<a href="{% url 'retos.views.editar' pk=lista.pk %}">editar</a></p></p>
+						</div>
+						{% endfor %}
+
+					
+				</td>
+		</table>
+
+{% endblock content %}
