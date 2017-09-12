@@ -1,0 +1,37 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>happy student</title>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td><strong>nombres</strong></td>
+				<td><strong>apellidos</strong></td>
+				<td><strong>puntaje</strong></td>
+			</tr>
+			<tr>
+			<td>
+				{% for lista in lista %}
+				<div>
+					<p>{{lista.nombres}}</p>	
+				</div>
+				{% endfor %}
+			</td>
+			<td>
+				{% for lista in lista %}
+				<div>
+					<p>{{lista.apellidos}}</p>	
+				</div>
+				{% endfor %}
+			</td>
+			<td>
+				{% for lista in lista %}
+				<div>
+					<p>{{lista.puntaje}}</p>	
+				</div>
+				{% endfor %}
+			</td>
+{% endblock content %}

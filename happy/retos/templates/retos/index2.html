@@ -1,0 +1,13 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+
+<form method="POST" action="" class="busqueda">
+		{% csrf_token %} 				
+		{{ form }}
+		<br>			
+		<button>busqueda</button>
+	</form>
+	{% for ap in ap %}
+	<p>el aprendiz es: {{ ap.identificacion }} {{ ap.apellidos }} {{ ap.nombres }} </p>
+	{% endfor %}
+{% endblock content %}
