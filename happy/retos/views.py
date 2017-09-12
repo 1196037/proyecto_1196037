@@ -3,6 +3,7 @@ from .models import Persona, Reto
 from .forms import *
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 
 # Create your views here.
@@ -12,10 +13,15 @@ def buscar_ap(request):
 		form = busqueda(request.POST)#instancia de la clase 
 		if form.is_valid():#si el formulario es valido 
 		   buscar = form.cleaned_data['buscar']#limpiar los espacios en blanco 	
+<<<<<<< HEAD
+		   ap = Persona.objects.filter(Q(nombres__icontains=buscar) | Q(identificacion__icontains=buscar))#query
+=======
 		   ap = Persona.objects.filter(nombres__contains=buscar)#query
+>>>>>>> origin/master
 	else:
 		form = busqueda()#formulario vacio
 	return render(request, 'retos/index2.html', locals())#renderizacion al html
+
 
 def aprendices(request):
 	p= Persona.objects.all()
@@ -87,13 +93,14 @@ def base(request):
 	return render(request, 'retos/base.html', {'form' : form})
 
 def registrar_aprendices(request):
+	mensaje = "el aprendiz se agrego correcta mente"
 	if request.method == "POST":
 		form = aprendicesForm(request.POST)
 		if form.is_valid():
 			aprendiz = form.save(commit=False)
 			aprendiz.Hora = 0
 			aprendiz.save()
-			return redirect(correcto)
+			return redirect('correcto')
 	else:
 		form = aprendicesForm()
 	return render(request, 'retos/agregar.html', {'form' : form})
