@@ -107,11 +107,13 @@ def agregar_categoria(request):
 		form = Agregar_Categoria_Forms(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('agregar_categoria')
+			mensaje = "has guardado"
+		 	return render(request,'retos/agregar_categoria.html',locals())
+			
 	else: 
 		form = Agregar_Categoria_Forms()
 
- 	return render(request,'retos/agregar_categoria.html',{'form':form})
+ 	return render(request,'retos/agregar_categoria.html',locals())
 
 def crear_reto(request):
 	if request.method == 'POST' :

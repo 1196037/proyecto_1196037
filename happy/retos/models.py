@@ -18,7 +18,7 @@ ESTADO = (
 	     ('incativo','Inactivo'),
 	)
 class Categoria (models.Model):
-	nombre 			= models.CharField(max_length = 50)
+	nombre 			= models.CharField(max_length = 50, unique = True)
 
 	def __unicode__ (self):
 		return self.nombre 
@@ -40,7 +40,7 @@ class Reto (models.Model):
 		return self.descripcion
 
 class Persona (models.Model):
-	identificacion 	= models.CharField(max_length = 50)
+	identificacion 	= models.CharField(max_length = 50 , unique = True)
 	nombres		 	= models.CharField(max_length = 256)
 	apellidos	 	= models.CharField(max_length = 256)
 	ficha		 	= models.CharField(max_length = 30)

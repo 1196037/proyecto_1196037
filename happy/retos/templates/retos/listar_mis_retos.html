@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>listar mis retos </title>
+</head>
+<body>
+
+<table>
+	<thead>
+
+		<tr>
+			<td>persona</td>
+			<td>reto</td>
+			<td>fecha respuesta</td>
+			<td>calificacion</td>
+			<td>nombre grupo</td>
+
+		</tr>
+
+	</thead>
+	<tbody>
+		{% if listas %}
+		{% for l in listas  %}
+
+
+		<tr>
+
+			<td>{{ l.persona}}</td>		
+			<td>{{ l.reto}}</td>
+			<td>{{ l.fecha_respuesta}}</td>
+			<td>{{ l.calificacion}}</td>
+			<td>{{ l.nombre_grupo}}</td>
+
+		</tr>
+
+			{% endfor %}
+
+			{% else %}
+			<h1>no hay retos </h1>
+
+			{% endif %}
+
+
+	
+	</tbody>
+
+</table>
+
+
+
+
+
+</body>
+</html>

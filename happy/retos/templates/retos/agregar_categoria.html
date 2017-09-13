@@ -1,8 +1,18 @@
 {% extends 'retos/base.html' %}
 {% block content %}
+
  <form method="POST">
  	{% csrf_token %}
 	{{ form.as_p }} 
   <button type="submit">guardar</button>
  </form>
- {% endblock%} 
+
+{% if  mensaje   %}
+
+
+<h3>{{ mensaje }}</h3>
+
+{% endif %}
+
+
+ {% endblock%} }
