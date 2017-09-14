@@ -1,0 +1,13 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<h3>Agregar Categoria</h3>
+ <form method="POST">
+ 	{% csrf_token %}
+	{{ form.as_p }} 
+  <button class="btn btn-default" type="submit">guardar</button>
+ </form>
+ <a href="{% url 'aprendices' %}"><button id="bm" class="btn btn-default" >inicio</button></a>
+   {% if  mensaje   %}
+<h3>{{ mensaje }}</h3>
+{% endif %}
+ {% endblock%} 

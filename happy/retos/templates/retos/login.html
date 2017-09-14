@@ -1,0 +1,12 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+    <div class="card">
+	<h5>iniciar sesion</h5>
+ 	<form action="." method="POST" align= "center">
+ 		{% csrf_token %}
+ 		{{mensaje}}
+ 		{{form.as_p}}
+ 		<input class="btn btn-default" color="#7F2148" type="submit" value="Login"/>
+ 	</form>
+ 	</div>
+ {% endblock %}	
