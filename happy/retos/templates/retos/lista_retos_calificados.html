@@ -1,0 +1,34 @@
+{% extends 'retos/base.html' %}
+	{% block content %}
+<h3>Lista de Retos calificados</h3>
+		<table>
+			<tr>
+				<td><strong>nombre reto</strong></td>
+				<td><strong>persona</strong></td>
+				<td><strong>puntuacion</strong></td>
+			</tr>
+			<tr>
+				<td>
+					{% for rcalificados in rcalificados %}
+						<div>
+							<p>{{rcalificados.reto}}</p>	
+						</div>
+					{% endfor %}
+				</td>
+				<td>
+					{% for rcalificados in rcalificados %}
+						<div>
+							<p>{{rcalificados.persona}}</p>	
+						</div>
+					{% endfor %}
+				</td>
+				<td>
+					{% for rcalificados in rcalificados %}
+						<div>
+							<p>{{rcalificados.calificacion}}</p>	
+						</div>
+					{% endfor %}
+				</td>
+			</tr>
+		</table>
+	{% endblock %}

@@ -1,0 +1,98 @@
+{% load staticfiles %}
+
+<html>
+<!DOCTYPE html>
+	<head>
+		<script  src = "bower_components / sweetalert2 / dist / sweetalert2.all.min.js" ></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core. js " ></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.all.min.js">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.common.js">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.common.min.js">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.common.min.js.map">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.js">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.1/sweetalert2.min.js">
+		<title>happystudent</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{% static 'manejo.css' %}">
+	</head>
+	<body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+	<script type="text/javascript" src="/static/js/materialize.js"></script>
+	<div class="page-header">
+	</div>
+
+	<div class="navbar-fixed">
+		<nav>
+			<div id="barra" class="nav-wrapper black">
+				<a href="{% url 'aprendices' %}" class="brand-logo">Happy Student</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down" >
+					<li><a id="menubtn1" class="waves-effect waves-light btn black" href="{% url 'retos.views.ranking' %}">Ranking</a></li>
+					<li><a id="menubtn2" class="waves-effect waves-light btn black" href="{% url 'retos.views.ver_retos' %}">Retos</a></li>
+					<li><a id="menubtn3" class="waves-effect waves-light btn black" href="{% url 'lista_categorias' %}">Categorias</a></li>
+					<li></li>
+				 <li>
+				   <ul class="collapsible " data-collapsible="accordion">    
+					<li>
+					  <a  class="collapsible-header transparent material-icons">person_outline</a>
+					  <div class="collapsible-body"><a class="black"  href="{% url 'aprendices' %}">perfil</a></div>
+					</li>
+				  </ul>	
+				</li>
+				 <li>
+				   <ul class="collapsible " data-collapsible="accordion">    
+					<li>
+					  <a  class="collapsible-header transparent material-icons">remove_red_eye</a>
+					  <div class="collapsible-body"><a  class="black" href="{% url 'lista_reto_sin_c' %}">retos sin calficar</a></div>
+					  <div class="collapsible-body"><a class="black" href="{% url 'lista_retos_calificados' %}">retos calficados</a></div>
+					</li>
+				  </ul>	
+				</li>
+
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					 <li><a href="sass.html">Salir</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		 $(document).ready(function() {
+		 $('select').material_select();
+		 });
+	$('.datepicker').pickadate({
+			selectMonths: true, // Creates a dropdown to control month
+			selectYears: 150 // Creates a dropdown of 15 years to control year
+			//yearRange: "1900:2012",
+			//changeYear: true,
+		  });
+	
+	  $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+  });
+	</script>
+	</body>
+</html>

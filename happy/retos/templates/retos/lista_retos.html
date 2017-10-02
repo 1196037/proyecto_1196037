@@ -1,0 +1,72 @@
+{% extends 'retos/base.html' %}
+	{% block content %}
+
+	 
+		<table>
+		        <h3>Lista  De Retos</h3>
+				<tr>
+					<td><strong>descripcion</strong></td>
+					<td><strong>tipo</strong></td>
+					<td><strong>dificultad</strong></td>
+					<td><strong>catregoria</strong></td>
+					<td><strong>estado</strong></td>
+					<td><strong>opciones</strong></td>
+				</tr>
+		 
+				<tr>
+					<td>
+							{% for m in m %}
+							<div>
+								<p><a href="{% url 'retos.views.detalle_reto' pk=m.pk %}">{{m.descripcion}}</a></p>	
+							</div>
+							{% endfor %}
+					</td>
+					<td>
+					        {% for m in m %}
+							<div>
+								<p>{{m.tipo}}</p>
+							</div>
+							{% endfor %}
+					</td>
+					<td>  
+					        {% for m in m %}
+							<div>
+								<p>{{m.dificultad}}</p>
+							</div>
+							{% endfor %}
+					</td>
+					
+					<td>
+
+					        {% for m in m %}
+							<div>
+								<p>{{m.categoria}}</p>
+							</div>
+							{% endfor %}
+					</td>
+					<td>
+					        {% for m in m %}
+							<div>
+								<p>{{m.estado}}
+								
+							</div>
+							{% endfor %}
+				    </td>
+				    <td>
+					        {% for m in m %}
+							<div>
+								<p><a href="{% url 'retos.views.editar_reto' pk=m.pk %}">editar</a></p>
+							</div>
+							{% endfor %}
+				    </td>
+				     <td>
+					        {% for m in m %}
+							<div>
+								<p><a href="{% url 'retos.views.eliminar_reto' pk=m.pk %}">eliminar</a></p>
+							</div>
+							{% endfor %}
+				    </td>
+		</table><p>
+<a class="btn btn-default" href="{% url 'crear_reto' %}">agregar</a>
+<a class="btn btn-default" href="{% url 'aprendices' %}">inicio</a>
+	{% endblock %}	

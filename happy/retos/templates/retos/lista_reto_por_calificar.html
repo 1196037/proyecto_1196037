@@ -1,0 +1,33 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<table>
+				<h3>Lista  De Retos sin calificar</h3>
+				<tr>
+					<td><strong>reto</strong></td>
+					<td><strong>persona</strong></td>
+					<td><strong>nota</strong></td>
+				</tr>
+				<tr>
+					<td>			
+							{% for lc in lc %}
+							<div>
+								<p>{{lc.reto}}</p>	
+							</div>
+							{% endfor %}		
+					</td>
+					<td>			
+						{% for lc in lc %}
+						<div>
+							<p>{{lc.persona}}</p>	
+						</div>
+						{% endfor %}		
+					</td>
+					<td>			
+						{% for lc in lc %}
+						<div>
+							<p>{{lc.calificacion}}</p>	
+						</div>
+							{% endfor %}	
+					</td>
+	
+{% endblock %}

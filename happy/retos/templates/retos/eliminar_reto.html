@@ -1,0 +1,12 @@
+{% extends 'retos/base.html' %}
+
+	{% block content %}
+		<h1>Eliminar </h1>
+		<form method="POST" class="blog-form" enctype="multipart/form-data">
+		    {% csrf_token %}
+			<h3>¿desea eliminar el reto?</h3>
+			<button type="submit" class="save btn btn-default" >si eliminar</button>
+			<a class="btn btn-default" href="{% url 'lista_reto' %}">cancelar</a>
+		</form>
+
+	{% endblock %}
