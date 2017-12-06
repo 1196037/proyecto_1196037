@@ -1,0 +1,59 @@
+.tablaR{
+   
+	width: 70%;
+	height: 150%;
+	position: relative;
+	top: 110px;
+	margin-left: 192px;
+	padding-bottom: : 50%;
+	padding-top: 5px;
+
+	border-radius: 104px 7px 104px 0px;
+		-moz-border-radius: 104px 7px 104px 0px;
+		-webkit-border-radius: 104px 7px 104px 0px;
+	border: 1px solid #000000;
+}
+.tablaR2{
+	width: 70%;  
+	margin-left: 192px;
+	position: absolute;
+	bottom: 30%;
+	}
+.busca{
+	padding-top: 50px;
+	width: 30%;
+	height: 100px;
+}
+#tabla{
+position: relative;
+top: 4px;
+}
+#buttonr{
+	position: relative;
+	top: -36px;
+	left: 145px;
+}
+#bto{
+	position: relative;
+	top: -36px;
+	left: 145px;
+}
+#canedit{
+	position: absolute;
+	top: 114.3%;
+	left: 40%;
+}
+#buttonlc{
+	position: relative;
+	top: -305px;
+}
+#bm{
+	position: relative;
+	top: -36px;
+	left: 140px;
+}
+#inst{
+	position: relative;
+	top: -36px;
+	left: 210px;
+}

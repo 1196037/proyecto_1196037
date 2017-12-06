@@ -1,0 +1,44 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+<div class="container">
+<div class="col s6 m4 l3 offset-s13 "> 
+<div class="col s4 m6 l12  z-depth-5">
+	<h5 align="center">Lista Aprendices</h5>
+	<a href="{% url 'buscar' %}"><button class="btn btn-default" color="#7F2148"><i class="material-icons">
+	search</i></button></a>
+	<a href="{% url 'registrar_aprendices' %}"><button class="btn btn-default"><i class="material-icons">add</i></button></a>
+<div class="row">
+  <div class="col s12 m12">
+  <table class="highlight">
+  <thead>
+	<tr>
+		<td><strong>identificacion</strong></td>
+		<td><strong>nombres</strong></td>
+		<td><strong>apellidos</strong></td>
+		<td><strong>ficha</strong></td>
+		<td><strong>telefono</strong></td>
+		<td> <i class="material-icons">create</i></td>
+		<td> <i class="material-icons">delete</i></td>
+	</tr>
+  </thead>
+  <tbody>
+			
+	{% for l in lista %}
+	<tr>
+		<td>{{l.identificacion}}</td>
+		<td>{{l.nombres}}</td>
+		<td>{{l.apellidos}}</td>
+		<td>{{l.ficha}}</td>
+		<td>{{l.telefono}}</td>
+		<td><a href="{% url 'retos.views.editar' pk=l.pk %}">editar</a></td>
+		<td><a href="{% url 'retos.views.eliminar_ap' pk=l.pk %}" onclick="if (!confirm('¿desea eliminar el aprendiz?')) return false ;">eliminar</a></td>
+	</tr>
+   </tbody>			
+	{% endfor %}
+</table>
+</div>
+</div>
+</div>
+{% endif %}
+{% endblock content %}

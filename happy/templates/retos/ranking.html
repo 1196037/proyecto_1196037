@@ -1,0 +1,35 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<div class="container">
+	    <h3>Ranking del Aprendiz</h3>
+<table class="striped" class="responsive-table">
+  <head>
+    <tr>
+		<td><strong>nombres</strong></td>
+		<td><strong>apellidos</strong></td>
+		<td><strong>puntaje</strong></td>
+		{% for lista in lista %}
+	</tr>
+  </head>
+  <body>
+		<tr>
+		<td>
+			<div>
+				<p>{{lista.nombres}}</p>	
+			</div>
+		</td>
+		<td>
+			<div>
+				<p>{{lista.apellidos}}</p>	
+			</div>
+		</td>
+		<td>
+			<div>
+				<p>{{lista.puntaje}}</p>	
+			</div>
+				
+		</td>
+		{% endfor %}
+  </body>			
+</div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<div class="container">
+   <h3>Calificar Reto</h3>
+   {% if mensaje %}
+      {{mensaje}}
+   {% endif %}
+   <table class="striped" class="responsive-table">
+<head>
+    <tr>
+		<td><strong>reto</strong></td>
+		<td><strong>archivo</strong></td>
+		<td><strong>estado</strong></td>
+	</tr>
+</head>
+<body>
+   <tr>
+   	<td>{{cal.reto}}</td>
+    <td><a href="/media/{{ cal.archivo }}">{{cal.archivo}}</a></td>
+    <td>{{cal.estado}}</td>
+   </tr>
+</body>
+</table>
+<form action="." method="POST">
+ 		{% csrf_token %}
+ 		{{calform.as_p}}
+<button class="btn btn-default" type="submit">guardar</button>
+</form>
+</div>
+{% endblock %}

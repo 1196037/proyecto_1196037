@@ -1,0 +1,129 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>happystudent</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+		
+		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/manejo.css">
+	</head>
+	<body>
+	<!--  Scripts-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	 <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+	<script src="/static/js/materialize.js"></script>
+	<div class="page-header">
+	</div>
+
+	<div class="navbar-fixed">
+	<header id="header" class="page-topbar">
+	 <nav >
+	<div class="nav-wrapper  orange darken-4"> 
+	  <a href="#!" class="brand-logo">Happy Student</a>
+	  <ul class="right hide-on-med-and-down">
+		<li>
+		  
+		<form>
+		  <div class="input-field transparent">
+			<input id="search" type="search" required>
+			<label class="label-icon transparent" for="search"><i class="material-icons">search</i></label>
+			<i class="material-icons transparent">close</i>
+		  </div>
+	  </form>
+				<li>
+				   <ul class="collapsible " data-collapsible="accordion">    
+					<li>
+					  <a  class="collapsible-header transparent material-icons">person_outline</a>
+					  <div class="collapsible-body"><a href="{% url 'aprendices' %}">perfil</a></div>
+					  {% if user.is_authenticated %}
+					  <div  class="collapsible-body"><a href="{% url 'vista_logout' %}">cerrar sesion</a></div>
+					  {% endif %}
+					</li>
+				  </ul> 
+				</li>
+			</div>
+		</nav>
+	</div>
+	</header>
+	<!-- Comienzo de la barra lateral-->
+<aside>
+	<ul id="slide-out" class="side-nav fixed" style="margin-top: 65px; ">
+	  
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+		  <li>
+			<a class="collapsible-header">Retos<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'lista_reto' %}">lista de retos</a></li>
+				<li><a href="{% url 'lista_mis_retoss' %}">lista mis retos</a></li>
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a href="{% url 'lista_reto_sin_c' %}">retos sin calificar</a></li>
+				<li><a href="{% url 'lista_retos_calificados' %}">retos calificados</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+	  </li>
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+		  <li>
+			<a class="collapsible-header">Aprendiz<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a href="{% url 'aprendices' %}">lista de aprendices</a></li>
+				{% endif %}
+				{% if user.is_authenticated and user.is_active and user.is_staff = False %}
+				<li><a>perfil</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+	  </li>
+		{% if user.is_authenticated and user.is_staff %}
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header">Instructor<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'lista_instructores' %}">lista de instructores</a></li>
+				<li><a href="{% url 'lista_categorias' %}">categorias</a></li>
+			  </ul>
+			</div>
+			</li>
+		</ul>
+		</li>
+		{% endif %}
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header">ver<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'ranking' %}">ranking</a></li>
+				<li><a href="{% url 'ranking_aprendices_retos_mas_realizados' %}">ranking retos mas realizados</a></li>
+			  </ul>
+			</div>
+			</li>
+		</ul>
+		</li>
+</aside>
+		 <div class="container">
+			<div class="col 6 m8 offset-m2 l6 offset-l3 ">
+				{% block content %}
+				{% endblock %}
+			</div>
+		 </div> 
+<script src="/static/js/init2.js"></script>
+	</body>
+</html>
+
+
+
+

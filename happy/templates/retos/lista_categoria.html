@@ -1,0 +1,36 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+<div class="container">
+<h3>Categorias</h3>
+<br>
+<table class="striped" class="responsive-table">
+	<a href="{% url 'agregar_categoria' %}"><button class="btn btn-default orange darken-4"><i class="material-icons">add</i>
+	<tr>
+		<td>nombre categoria</td>
+		<td> <i class="material-icons">create</i></td>
+        <td> <i class="material-icons">delete</i></td>
+	{% for c in lista3 %}
+	</tr>
+	<tr>
+		<td>
+			{{c.0}}		    
+		</td>
+		<td>
+			<a href="{% url 'editar_categoria' pk=c.0.pk %}">editar</a>
+		</td>
+		<td>
+			{% if c.1 %}
+		    <a onclick="{alert('la categoria {{c.0}} ya esta definida')}">eliminar</a>
+		</td>
+		<td>
+		    {% else %}
+		<a href="{% url 'eliminar_categorias' pk=c.0.pk %}" onclick=" if(! confirm('deseas eliminar esta categoria {{categorias}}')) return false;">eliminar</a>
+	    </td>									
+		   {% endif %}    
+	</tr>
+	{% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock %}
