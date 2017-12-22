@@ -1,0 +1,25 @@
+{% extends 'retos/base.html' %}
+{%  block content   %}
+ 
+<div class="container">
+    <h4>Solucionar Reto grupal</h4>
+    <p>Reto: {{reto.descripcion}}</p>
+    <form action="." method="POST" enctype="multipart/form-data">
+        <select name="ap" id="ap" class="multiselect" multiple="multiple">
+    {% for l in lista %}
+        <option value="{{l.id}}">{{l}}</option>
+    {% endfor %}
+        {% csrf_token %}
+        {{form.as_p}}
+    </select>
+        <input class="btn btn-default orange darken-4" type="submit" value="guardar"/>
+    </form>
+</div>
+
+
+
+
+
+
+
+{%  endblock  %}
